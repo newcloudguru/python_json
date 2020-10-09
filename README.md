@@ -1,6 +1,6 @@
 ****************
 Python Task
-Fahim Safedien
+Coder: Fahim
 08/10/2020
 ****************
 
@@ -13,6 +13,6 @@ Results: Output.json
 
 SQL
 ***
-Expected revenue, see revenue.png
-
+Expected revenue: revenue.png
+SQL script: revenue.sql
 
