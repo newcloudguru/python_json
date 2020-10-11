@@ -1,6 +1,6 @@
 ****************
 Python Task
-Coder: Fahim
+by Fahim
 08/10/2020
 ****************
 
@@ -13,6 +13,8 @@ Results: Output.json
 
 SQL
 ***
+Using mssql T-SQL
 Expected revenue: revenue.png
-SQL script: revenue.sql
+SQL scripts: get_effective_date.sql, get_revenue
+
 
