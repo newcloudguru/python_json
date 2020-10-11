@@ -1,17 +1,18 @@
-declare @dateFrom datetime
-declare @dateTo datetime
-declare @product varchar(20)
-declare @findDate datetime
+DROP PROCEDURE IF EXISTS [dbo].[get_effective_date];
+GO
+CREATE PROCEDURE get_effective_date @product nvarchar(20), @findDate DATE
+AS
+
+declare @datefrom datetime
+declare @dateto datetime
 declare @foundDate datetime
 declare @count integer
 declare @dateRet datetime
 
-set @product = 'product_1'
-set @findDate = '2018-01-03'
 set @dateFrom = (select min(eff_date) from Prices where product = @product)
 set @dateTo = (select max(eff_date) from Prices where product = @product)
 
---set @dateTo = dateadd(day, 1, @dateTo)
+set @dateTo = dateadd(day, 1, @dateTo)
 
 while (@dateFrom < @dateTo)
 begin
@@ -45,6 +46,7 @@ begin
 
 select @dateFrom = dateadd(day, 1, @dateFrom)
 end
- 
---select @dateRet, @foundDate
-select price from prices where eff_date = @dateRet and product = @product
+
+RETURN (select price from prices where eff_date = @dateRet and product = @product)
+
+GO
